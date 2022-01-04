@@ -1,17 +1,11 @@
 <template>
     <div class="w-full flex h-5/6">
-        <div class="w-1/12 p-3 h-full ">
-            <ul class>
-                <li>
-                    <a href="#" class="text-gray-950 text-sm write-vertical-left">Facebook</a>
-                </li>
-                <li>
-                    <a href="#" class="text-gray-950 text-sm write-orient-sideways">Instagram</a>
-                </li>
-                <li>
-                    <a href="#" class="text-gray-950 text-sm write-vertical-right">Twitter</a>
-                </li>
-            </ul>
+        <div class="w-1/12 flex justify-center py-20  h-full ">
+            <div class="flex flex-col w-full items-center">
+                <a href="#" class="social text-gray-950 font-bold text-md">Twitter</a>
+                <a href="#" class="social text-gray-950 font-bold text-md pt-10">Instagram</a>
+                <a href="#" class="social text-gray-950 font-bold text-md pt-10">Facebook</a>
+            </div>
         </div>
         <div class="w-10/12 h-full relative">
             <div class="h-full flex">
@@ -58,3 +52,9 @@
         <div class="w-1/12 h-full"></div>
     </div>
 </template>
+
+<style>
+.social {
+    writing-mode: sideways-lr;
+}
+</style>

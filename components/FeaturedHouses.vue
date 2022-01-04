@@ -1,4 +1,26 @@
-
+<script setup>
+import { Swiper, SwiperSlide } from "swiper/vue"
+import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core"
+SwiperCore.use([Pagination, Navigation, Autoplay])
+const testimonials = [
+    {
+        name: "Solomon Akintola",
+        text: "Fortfolio has consistently ensured returns on my investment capital. Better than all the times I wasted my money on getting rich quick schemes. I am more than happy with them.",
+    },
+    {
+        name: "Adaku Ihioma",
+        text: "I am particularly impressed with the quick response of their support team. Its like having a girlfriend that manages your money, bring in more money and still have the time to make your stomach feel sweet because you are always heard and responded to.",
+    },
+    {
+        name: "Queen Nwaze",
+        text: "This is one of the few investment platforms if not the only investment platform that has consistent returns, correct capital management and great support.",
+    },
+    {
+        name: "Fred Nwoke",
+        text: "It went from doubts to unbelievably true. To say i am impressed is an understatement. I am happy I took the risk to invest with you guys, and it is a risk that was worth it. Thanks to Fortfolio for the amazing returns.",
+    }
+]
+</script>
 
 <template>
     <div class="px-28 my-10 p-12">
@@ -7,8 +29,54 @@
                 <p class="text-2xl">Featured houses</p>
             </span>
             <div class>
-                <NuxtLink to="" class="p-4 px-8 text-white bg-black-10">View All</NuxtLink>
+                <NuxtLink to class="p-4 px-8 text-white bg-black-10">View All</NuxtLink>
             </div>
+        </div>
+        <div class="my-6 container mx-auto max-w-screen-lg">
+            <swiper
+                :slides-per-view="2"
+                class="w-full h-96 sm:h-80"
+                :space-between="50"
+                :pagination="{ clickable: true }"
+                :navigation="{ nextEl: '.nextArrow', prevEl: '.prevArrow' }"
+                :speed="500"
+                :autoplay="true"
+                :centered-slides="true"
+                :loop="true"
+            >
+                <div
+                    class="parallax-slider-navigation absolute top-1/2 z-40 inset-x-1 sm:inset-x-0 m-auto flex justify-between h-0"
+                >
+                    <div
+                        class="h-10 sm:h-96 w-10 sm:w-20 rounded-full sm:rounded-none nav-indicator prevArrow"
+                    >&blacktriangleleft;</div>
+                    <div
+                        class="h-10 sm:h-96 w-10 sm:w-20 rounded-full sm:rounded-none nav-indicator nextArrow"
+                    >&blacktriangleright;</div>
+                </div>
+                <swiper-slide
+                    v-for="(testimonial, i) in testimonials"
+                    :key="i"
+                    class="bg-gray-950 shadow-lg relative p-8 h-full"
+                >
+                    <p class="text-white text-md">{{ testimonial.text }}</p>
+                    <p class="text-white text-lg absolute bottom-10 right-10">{{ testimonial.name }}</p>
+                </swiper-slide>
+            </swiper>
         </div>
     </div>
 </template>
+
+<style>
+.nav-indicator {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-50%);
+    background: rgba(2, 44, 71, 0.863);
+}
+</style>
