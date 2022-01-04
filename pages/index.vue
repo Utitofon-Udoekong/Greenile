@@ -1,6 +1,11 @@
 
 <template>
   <Main/>
+  <InfoSection/>
+  <WhyUs/>
+  <GetInspired/>
+  <FeaturedHouses/>
+  <Contact/>
 </template>
 
 <style>
