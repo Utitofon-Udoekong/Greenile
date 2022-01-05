@@ -1,6 +1,7 @@
-<script setup>
+<script setup >
 import { Swiper, SwiperSlide } from "swiper/vue"
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core"
+import SVGCircle from "./SVGCircle.vue";
 SwiperCore.use([Pagination, Navigation, Autoplay])
 const testimonials = [
     {
@@ -33,36 +34,46 @@ const testimonials = [
             </div>
         </div>
         <div class="my-6 container mx-auto max-w-screen-lg">
-            <swiper
-                :slides-per-view="2"
-                class="w-full h-96 sm:h-80"
-                :space-between="50"
-                :pagination="{ clickable: true }"
-                :navigation="{ nextEl: '.nextArrow', prevEl: '.prevArrow' }"
-                :speed="500"
-                :autoplay="true"
-                :centered-slides="true"
-                :loop="true"
-            >
-                <div
-                    class="parallax-slider-navigation absolute top-1/2 z-40 inset-x-1 sm:inset-x-0 m-auto flex justify-between h-0"
-                >
-                    <div
-                        class="h-10 sm:h-96 w-10 sm:w-20 rounded-full sm:rounded-none nav-indicator prevArrow"
-                    >&blacktriangleleft;</div>
-                    <div
-                        class="h-10 sm:h-96 w-10 sm:w-20 rounded-full sm:rounded-none nav-indicator nextArrow"
-                    >&blacktriangleright;</div>
-                </div>
-                <swiper-slide
-                    v-for="(testimonial, i) in testimonials"
+            <Swiper
+            :slides-per-view="2"
+            :space-between="50"
+            :pagination="{clickable: true}"
+            :speed="500"
+            :centered-slides="true"
+            :loop="true"
+            v-if="data.length"
+            :autoplay="{ delay: 5000, pauseOnMouseEnter: true }"
+            :navigation="{ nextEl: '.image-next', prevEl: '.image-prev' }"
+            class="relative w-full max-w-screen-lg border-5 border-dark-300 rounded-2xl bg-dark-600"
+        >
+            <SwiperSlide
+                class="w-full !h-auto relative pb-2/3"
+                v-for="(testimonial, i) in testimonials"
                     :key="i"
-                    class="bg-gray-950 shadow-lg relative p-8 h-full"
-                >
-                    <p class="text-white text-md">{{ testimonial.text }}</p>
-                    <p class="text-white text-lg absolute bottom-10 right-10">{{ testimonial.name }}</p>
-                </swiper-slide>
-            </swiper>
+            >
+                <img :src="image" alt="" />
+                <p class="text-white text-md">{{ testimonial.text }}</p>
+                <p class="text-white text-lg absolute bottom-10 right-10">{{ testimonial.name }}</p>
+            </SwiperSlide>
+
+            <button
+                slot="container-end"
+                aria-label="slider-left"
+                class="image-prev absolute flex rounded-full z-20 left-4 top-1/2 -mt-6 w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
+            >   
+                <i-ic:baseline-arrow-left class="w-full h-auto"></i-ic:baseline-arrow-left>
+            </button>
+            <button
+                slot="container-end"
+                aria-label="slider-right"
+                class="image-next absolute flex rounded-full z-20 right-4 top-1/2 -mt-6 w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
+            >
+                <!-- <mdi-account class="w-full h-auto" /> -->
+                <i-ic:baseline-arrow-right class="w-full h-auto"></i-ic:baseline-arrow-right>
+            </button>
+        </Swiper>
+        <SVGCircle class="absolute w-20 h-20 sm:w-30 sm:h-30 lg:left-0 -left-10 -top-10"></SVGCircle>
+        <SVGCircle class="absolute sm:w-50 sm:h-50 -right-10 -bottom-10"></SVGCircle>
         </div>
     </div>
 </template>

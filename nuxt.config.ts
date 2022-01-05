@@ -59,11 +59,7 @@ export default defineNuxtConfig({
     vite: {
         plugins: [
             Components({
-                resolvers: [
-                    IconsResolver({
-                        enabledCollections: ['mdi']
-                    })
-                ]
+                resolvers: [IconsResolver()]
             }),
             Icons(),
         ],
