@@ -42,6 +42,7 @@ export default defineNuxtConfig({
         "@/assets/css/styles.css",
         "swiper/swiper.min.css",
         "swiper/components/navigation/navigation.min.css",
+        "swiper/components/pagination/pagination.min.css",
     ],
     build: {
         postcss: {
