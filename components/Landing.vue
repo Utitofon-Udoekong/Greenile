@@ -38,11 +38,9 @@
                                 <p class="text-black-10">Pricing</p>
                                 <p>$5000 - $10000</p>
                             </div>
-                            <div>
-                                <span>
-                                    <i>IA</i>
-                                </span>
-                            </div>
+                            <NuxtLink to="" class="w-16 h-auto bg-black-10 grid place-items-center">
+                                <i-iconoir:search class="text-white text-xl"></i-iconoir:search>
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>

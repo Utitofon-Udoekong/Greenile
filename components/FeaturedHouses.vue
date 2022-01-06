@@ -44,8 +44,8 @@ const FeaturedHouses = [
 </script>
 
 <template>
-    <div class="px-28 my-10 p-12">
-        <div class="flex justify-between">
+    <div class=" my-10 p-12">
+        <div class="px-28 flex justify-between">
             <span>
                 <p class="text-2xl">Featured houses</p>
             </span>
@@ -53,32 +53,32 @@ const FeaturedHouses = [
                 <NuxtLink to class="p-4 px-8 text-white bg-black-10">View All</NuxtLink>
             </div>
         </div>
-        <div class="my-6 container mx-auto max-w-screen-lg">
+        <div class="my-6 container mx-auto ">
             <Swiper
-            :slides-per-view="2"
-            :space-between="50"
+            :slides-per-view="3"
+            :space-between="30"
             :pagination="{clickable: true}"
             :speed="500"
             :centered-slides="true"
             :loop="true"
             :autoplay="{ delay: 5000, pauseOnMouseEnter: true }"
             :navigation="{ nextEl: '.image-next', prevEl: '.image-prev' }"
-            class="relative w-full max-w-screen-lg border-5 border-dark-300 rounded-2xl bg-dark-600"
+            class="relative w-full border-5 border-dark-300 rounded-2xl bg-dark-600"
         >
             <SwiperSlide
-                class="w-full !h-auto relative pb-2/3 bg-white p-8 shadow-xl hover:shadow-2xl"
+                class="w-full !h-auto relative pb-2/3 bg-white shadow-xl hover:shadow-2xl"
                 v-for="(featuredHouse, index) in FeaturedHouses"
                     :key="index"
             >   
                 <div class="h-60 mb-4">
-                    <img class="h-full w-full" src="@/assets/images/home-{{index + 1}}.jpg" alt="home-{{index + 1}}">
+                    <img class="h-full w-full" :src="`assets/images/home-${index + 1}.jpg`" :alt="`home-${index + 1}`">
                 </div>
-                <div class="">
+                <div class="px-8">
                     <p class="text-black-10 text-lg font-semibold">${{ featuredHouse.price }}</p>
                     <p class="text-gray-950 text-sm">{{ featuredHouse.address }}</p>
                 </div>
                 <hr class="my-4">
-                <div class="flex justify-between items-center">
+                <div class="px-8 pb-4 flex justify-between items-center">
                     <div>
                         <span class="text-black-10 text-lg flex items-center">
                             <i-cil:bed></i-cil:bed>
@@ -106,14 +106,14 @@ const FeaturedHouses = [
             <button
                 slot="container-end"
                 aria-label="slider-left"
-                class="image-prev absolute transition ease-linear duration-150 flex rounded-full z-20 left-4 top-1/2 bg-gray-950 p-2 -mt-6  w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
+                class="image-prev absolute transition ease-linear duration-150 flex rounded-full z-20 left-7 top-1/2 bg-gray-950 p-2 -mt-6  w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
             >   
                 <i-cil:arrow-left class="w-full h-auto"></i-cil:arrow-left>
             </button>
             <button
                 slot="container-end"
                 aria-label="slider-right"
-                class="image-next absolute transition ease-linear duration-150 flex rounded-full z-20 right-4 top-1/2 bg-gray-950 p-2 -mt-6 w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
+                class="image-next absolute transition ease-linear duration-150 flex rounded-full z-20 right-7 top-1/2 bg-gray-950 p-2 -mt-6 w-12 h-auto bg-opacity-50 bg-dark-900 hover:bg-opacity-100"
             >
                 <i-cil:arrow-right class="w-full h-auto"></i-cil:arrow-right>
             </button>
