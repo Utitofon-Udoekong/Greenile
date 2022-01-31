@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex h-5/6">
+    <div class="w-full flex h-screen">
         <div class="w-1/12 flex justify-center py-20  h-full ">
             <div class="flex flex-col w-full items-center">
                 <a href="#" class="social text-gray-950 font-bold text-md">Twitter</a>

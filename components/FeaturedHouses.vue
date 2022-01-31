@@ -50,7 +50,7 @@ const FeaturedHouses = [
                 <p class="text-2xl">Featured houses</p>
             </span>
             <div class>
-                <NuxtLink to class="p-4 px-8 text-white bg-black-10">View All</NuxtLink>
+                <NuxtLink to="/marketplace" class="p-4 px-8 text-white bg-black-10">View All</NuxtLink>
             </div>
         </div>
         <div class="my-6 container mx-auto ">
